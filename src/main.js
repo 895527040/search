@@ -46,15 +46,15 @@ render()
 $('.addButton').on('click', () => {
 	let url = window.prompt('请问您想添加什么网站呀？（๑ `▽´๑)')
 	if (url.indexOf('http') !== 0) {
-		url = 'https://' + url
+		url = 'https://' + url;
 	}
 	console.log(url)
 	hashMap.push({
 		logo: simplifyUrl(url)[0].toUpperCase(),
-		url: url,
-	})
-	render()
-})
+		url: url
+	});
+	render();
+});
 window.onbeforeunload = () => {
 	const string = JSON.stringify(hashMap)
 	localStorage.setItem('x', string)
