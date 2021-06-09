@@ -124,34 +124,35 @@ var x = localStorage.getItem('x');
 var xObject = JSON.parse(x);
 var hashMap = xObject || [{
   logo: 'A',
-  url: 'https://www.acfun.cn'
+  url: 'https://www.apple.cn'
 }, {
   logo: 'B',
   url: 'https://www.bilibili.com'
 }, {
+  logo: 'G',
+  url: 'https://www.github.com'
+}, {
   logo: 'D',
-  URL: 'https://www.dangdang.com'
+  url: 'https://www.dangdang.com'
 }, {
-  logo: 'G',
-  URL: 'https://www.google.com'
-}, {
-  logo: 'G',
-  URL: 'https://www.github.com'
+  logo: 'I',
+  url: 'https://iconfont.cn'
 }];
 
 var simplifyUrl = function simplifyUrl(url) {
-  return url.replace('https://', '').replace('http://', '').replace('www.', '').replace(/\/.*/, '');
+  return url.replace('https://', '').replace('http://', '').replace('www.', '').replace(/\/.*/, ''); // 删除 / 开头的内容
 };
 
 var render = function render() {
   $siteList.find('li:not(.last)').remove();
   hashMap.forEach(function (node, index) {
-    var $li = $("<li>\n<div class=\"site\">\n<div class=\"logo\">".concat(node.logo, "</div>\n<div class = \"link\">").concat(simplifyUrl(node.url), "</div>\n<div class = \"close\">\n<svg class = \"icon\">\n<use xlink:href=\"#icon-close\"></use>\n</svg>\n</div>\n</div>\n</li>")).insertBefore($lastLi);
+    var $li = $("<li>\n      <div class=\"site\">\n        <div class=\"logo\">".concat(node.logo, "</div>\n        <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n        <div class=\"close\">\n          <svg class=\"icon\">\n            <use xlink:href=\"#icon-close\"></use>\n          </svg>\n        </div>\n      </div>\n    </li>")).insertBefore($lastLi);
     $li.on('click', function () {
       window.open(node.url);
     });
     $li.on('click', '.close', function (e) {
-      e.stopPropagation();
+      e.stopPropagation(); // 阻止冒泡
+
       hashMap.splice(index, 1);
       render();
     });
@@ -160,7 +161,7 @@ var render = function render() {
 
 render();
 $('.addButton').on('click', function () {
-  var url = window.prompt('请问您想添加什么网站呀？（๑ `▽´๑)');
+  var url = window.prompt(' 请问你要添加的网址是啥？');
 
   if (url.indexOf('http') !== 0) {
     url = 'https://' + url;
@@ -216,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49876" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53720" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
